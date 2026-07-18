@@ -1,19 +1,58 @@
+# Makefile pour le projet wave-equation-solver
+
+# Variables
 CC=gcc
-CFLAGS=-Wall -Wextra -std=c11
-
+CFLAGS=-Wall -Wextra -Werror -std=c11 -g
+LDFLAGS=-lm
 SRC=$(wildcard src/*.c)
-OBJ=$(SRC:.c=.o)
-BIN=wave-equation-solver
+HDR=$(wildcard src/*.h)
+TEST_SRC=$(wildcard src/tests/*.c)
+TEST_HDR=$(wildcard src/tests/*.h)
+TARGET=wave-equation-solver
+TEST_TARGET=tests
 
-all: $(BIN)
+# Règles de construction
+.PHONY: all clean test
 
-$(BIN): $(OBJ)
-	$(CC) $(CFLAGS) -o $@ $^
+all: $(TARGET)
+
+$(TARGET): $(SRC) $(HDR)
+	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
 
 clean:
-	rm -f $(OBJ) $(BIN)
+	rm -f $(TARGET) tests
 
-test:
-	@echo "No tests configured"
+test: $(TEST_TARGET)
 
-.PHONY: all clean test
+$(TEST_TARGET): $(TEST_SRC) $(TEST_HDR) $(HDR)
+	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
+
+# Règles de documentation
+doc:
+	doxygen Doxyfile
+
+# Règles de validation
+validate:
+	@echo "Vérification de la complexité cyclomatique..."
+	@for file in $(SRC) $(HDR); do \
+		echo "Analyse de $$file..."; \
+		sloccount -f SLOC --details $$file; \
+	done
+	@echo "Vérification des tests..."
+	@for file in $(TEST_SRC); do \
+		echo "Analyse de $$file..."; \
+		sloccount -f SLOC --details $$file; \
+	done
+
+# Règles de sécurité
+security:
+	@echo "Vérification des erreurs..."
+	@for file in $(SRC) $(HDR); do \
+		echo "Analyse de $$file..."; \
+		grep -n "goto" $$file; \
+	done
+	@echo "Vérification des secrets en dur..."
+	@for file in $(SRC) $(HDR); do \
+		echo "Analyse de $$file..."; \
+		grep -n "API_KEY" $$file; \
+	done
