@@ -1,18 +1,20 @@
-# Design Document: wave-equation-solver / Document de conception
+# Design Document: wave-equation-solver
 
-## Overview / Vue d'ensemble
-Résolution de l'équation d'onde en 1D
+## Overview
+# wave-equation-solver
+## Titre + badges
+
+[![C/C++](https://img.shields.io/badge/C%2FC++-blue.svg)](https://www.tiobe.com/tiobe-index/)
+[![MIT License](https://img.shields.io/badge/License-MIT-green.s
 
 ## Architecture
-Le projet est structuré de manière modulaire pour faciliter la maintenance.
-The project is structured in a modular way for easy maintenance.
+The project follows a modular architecture for maintainability and extensibility.
 
-## Choix techniques / Technical choices
-- Langage / Language: c
-- Approche: Implementation directe avec focus sur la performance
-- Approach: Direct implementation with focus on performance
+## Technical Choices
+- Language: c
+- Approach: Direct implementation with focus on correctness and performance
 
-## Améliorations futures / Future improvements
-- Optimisation des performances / Performance optimization
-- Ajout de tests supplémentaires / Additional tests
-- Documentation enrichie / Enhanced documentation
+## Future Improvements
+- Performance optimization
+- Additional test coverage
+- Enhanced documentation

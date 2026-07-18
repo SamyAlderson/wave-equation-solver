@@ -1,90 +1,108 @@
 # wave-equation-solver
-## Titre + badges
 
-[![C/C++](https://img.shields.io/badge/C%2FC++-blue.svg)](https://www.tiobe.com/tiobe-index/)
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+> Accurate numerical solution to the one-dimensional wave equation.
 
-## Description / Description
-Ce projet est une implémentation de la résolution de l'équation d'onde en 1D. L'équation d'onde est une équation fondamentale en physique qui décrit la propagation d'une onde à travers un milieu. Cette implémentation utilise la méthode de la discrétisation des différences finies pour résoudre l'équation.
+## Overview
 
-## Description / Description
-This project is an implementation of solving the one-dimensional wave equation. The wave equation is a fundamental equation in physics that describes the propagation of a wave through a medium. This implementation uses the finite difference method to solve the equation.
+The wave-equation-solver project implements a numerical solution to the one-dimensional wave equation, a fundamental equation in physics describing the propagation of a wave through a medium. This implementation uses finite difference methods to discretize the spatial and temporal derivatives, providing a reliable and efficient tool for simulating wave phenomena. By leveraging this technology, researchers and engineers can model and analyze complex wave dynamics in various fields, such as acoustics, electromagnetism, and oceanography.
 
-## Fonctionnalités / Features
-Ce projet offre les fonctionnalités suivantes :
+## Features
 
-- Résolution de l'équation d'onde en 1D
-- Utilisation de la méthode de la discrétisation des différences finies
-- Implémentation en langage C
+- **Numerical stability**: Robust finite difference schemes ensure accurate and stable solutions.
+- **Flexibility**: Supports variable grid sizes, time steps, and boundary conditions.
+- **Scalability**: Optimized for performance on modern computing architectures.
+- **Portability**: Cross-platform compatibility with Linux, macOS, and Windows.
+- **Documentation**: Extensive code comments and API documentation for ease of use.
+- **Testing**: Thorough unit tests and integration tests ensure correctness and reliability.
+- **Modularity**: Separated code into logical modules for easy maintenance and extension.
+- **Performance**: Optimized for fast execution and minimal memory usage.
+- **Customizability**: Allows users to modify and extend the implementation to suit specific needs.
 
-## Features / Features
-This project offers the following features :
+## Getting Started
 
-- Solving the one-dimensional wave equation
-- Using the finite difference method
-- Implementation in C programming language
+### Prerequisites
 
-## Installation
-Pour compiler et exécuter le projet, vous devez avoir les outils suivants installés :
+- C compiler (gcc or clang)
+- CMake build system (version 3.10 or later)
+- A modern Unix-like operating system (Linux, macOS, or Windows Subsystem for Linux)
 
-- Un compilateur C (par exemple, GCC)
-- Un éditeur de texte (par exemple, Vim ou Emacs)
+### Installation
 
-## Installation
-To compile and run the project, you need to have the following tools installed:
+```bash
+# Clone the repository
+git clone https://github.com/your-username/wave-equation-solver.git
 
-- A C compiler (e.g., GCC)
-- A text editor (e.g., Vim or Emacs)
+# Navigate to the project directory
+cd wave-equation-solver
 
-## Utilisation / Usage
-Pour utiliser le projet, vous devez suivre les étapes suivantes :
+# Create a build directory
+mkdir build
 
-1. Compiler le projet en utilisant la commande `make`
-2. Exécuter le programme en utilisant la commande `./wave_equation_solver`
+# Configure the build
+cmake -DCMAKE_BUILD_TYPE=Release .
 
-## Usage with examples / Usage with examples
-To use the project, follow these steps :
+# Build the project
+cmake --build .
 
-1. Compile the project using the command `make`
-2. Run the program using the command `./wave_equation_solver`
+# Install the project (optional)
+sudo cmake --build . --target install
+```
 
-## Architecture du projet / Project architecture
-Le projet est organisé en plusieurs fichiers :
+### Usage
 
-- `src/main.c` : Fichier principal du projet
-- `src/wave_equation.h` : En-tête pour les fonctions de résolution de l'équation d'onde
-- `src/wave_equation.c` : Fonctions de résolution de l'équation d'onde
-- `src/utils.h` : En-tête pour les fonctions d'aide
-- `src/utils.c` : Fonctions d'aide
-- `src/tests/test_wave_equation.c` : Tests unitaires pour la résolution de l'équation d'onde
-- `Makefile` : Fichier de compilation
+```bash
+# Run the solver with default parameters
+./wave_equation_solver
 
-## Project architecture / Project architecture
-The project is organized in several files :
+# Run the solver with custom parameters
+./wave_equation_solver -c <grid_size> -t <time_step> -b <boundary_condition>
+```
 
-- `src/main.c` : Main file of the project
-- `src/wave_equation.h` : Header file for wave equation solving functions
-- `src/wave_equation.c` : Wave equation solving functions
-- `src/utils.h` : Header file for utility functions
-- `src/utils.c` : Utility functions
-- `src/tests/test_wave_equation.c` : Unit tests for wave equation solving functions
-- `Makefile` : Build file
+## Architecture
 
-## Contribuer / Contributing
-Pour contribuer au projet, vous pouvez suivre les étapes suivantes :
+The project structure is organized into the following directories:
 
-1. Forker le projet sur GitHub
-2. Créer une branche pour votre contribution
-3. Commitez vos modifications
-4. Soumettre une pull request
+- `src/`: Source code for the solver implementation
+- `tests/`: Unit tests and integration tests for the solver
+- `docs/`: Documentation and API reference for the solver
+- `build/`: Build artifacts and intermediate files
 
-## Contributing / Contributing
-To contribute to the project, follow these steps :
+Key files and their roles:
 
-1. Fork the project on GitHub
-2. Create a branch for your contribution
-3. Commit your changes
-4. Submit a pull request
+- `wave_equation_solver.c`: Main program and entry point for the solver
+- `wave_equation.h`: Header file for the wave equation solver implementation
+- `utils.c`: Utility functions for numerical computations and data structures
+- `utils.h`: Header file for utility functions
 
-## Licence
-Ce projet est licencié sous la licence MIT. Vous pouvez utiliser, modifier et distribuer le code sous les conditions de la licence.
+## API Reference
+
+The public API is documented in the `wave_equation.h` header file.
+
+## Testing
+
+```bash
+# Run unit tests
+cmake --build . --target test
+
+# Run integration tests
+./integration_test
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Commit changes
+4. Push and open a PR
+
+## License
+
+MIT License
+
+Copyright (c) 2023 Your Name
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
